@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build x-openwrt
+name: Build Lede
 
 on:
   schedule:
@@ -22,15 +22,15 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/x-wrt/x-wrt.git
-  REPO_BRANCH: 24.04_b202405311437
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: true
+  UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -65,52 +65,52 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-         git clone --depth 1 --branch $REPO_BRANCH $REPO_URL
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
-        cd x-wrt
+        cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
-      run: cd x-wrt && ./scripts/feeds update -a
+      run: cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd x-wrt && ./scripts/feeds install -a
+      run: cd openwrt && ./scripts/feeds install -a
       
-#    - name: Download DIY-Config
-#      run: |
-#        cd openwrt/package/lean/autocore/files/arm/
-#        sudo rm -rf index.htm
-#        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/indexa.htm -o index.htm
-#        cd $GITHUB_WORKSPACE/openwrt
-#       cd package/lean/autocore/files/x86/
-#        sudo rm -rf index.htm
-#        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/indexb.htm -o index.htm
-#        cd $GITHUB_WORKSPACE/openwrt/
-#        cd package/base-files/files/etc/
-#        sudo rm -rf banner
-#        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/banner -o 1.banner
-#        mv 1.banner banner
-#        ls
+    - name: Download DIY-Config
+      run: |
+        cd openwrt/package/lean/autocore/files/arm/
+        sudo rm -rf index.htm
+        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/indexa.htm -o index.htm
+        cd $GITHUB_WORKSPACE/openwrt
+        cd package/lean/autocore/files/x86/
+        sudo rm -rf index.htm
+        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/indexb.htm -o index.htm
+        cd $GITHUB_WORKSPACE/openwrt/
+        cd package/base-files/files/etc/
+        sudo rm -rf banner
+        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/banner -o 1.banner
+        mv 1.banner banner
+        ls
            
     - name: Downlaod Config
       run: |
-         cd x-wrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-openwrt.config -O .config
+         cd openwrt
+         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/5.config -O .config
          
     - name: Update make
       run: |
-        cd x-wrt
+        cd openwrt
         make menuconfig -j8 V=99 -i
 
     - name: Load custom configuration
       run: |
         chmod +x $DIY_P2_SH
-        cd x-wrt
+        cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
 #    - name: SSH connection to Actions
@@ -123,7 +123,7 @@ jobs:
     - name: Download package
       id: package
       run: |
-        cd x-wrt
+        cd openwrt
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
@@ -131,7 +131,7 @@ jobs:
     - name: Compile the firmware
       id: compile
       run: |
-        cd x-wrt
+        cd openwrt
         echo -e "$(nproc) thread compile"
         make -j8  || make -j8 V=s || make -j8 V=99
         echo "status=success" >> $GITHUB_STATE
@@ -147,13 +147,13 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: x-wrt/bin
+        path: openwrt/bin
 
     - name: Organize files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        cd x-wrt/bin/targets/*/*
+        cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT

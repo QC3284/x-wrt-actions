@@ -72,14 +72,14 @@ jobs:
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
-        cd openwrt
+        cd x-wrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: cd x-wrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
+      run: cd x-wrt && ./scripts/feeds install -a
       
 #    - name: Download DIY-Config
 #      run: |
@@ -99,18 +99,18 @@ jobs:
            
     - name: Downlaod Config
       run: |
-         cd openwrt
+         cd x-wrt
          wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-openwrt.config -O .config
          
     - name: Update make
       run: |
-        cd openwrt
+        cd x-wrt
         make menuconfig -j8 V=99 -i
 
     - name: Load custom configuration
       run: |
         chmod +x $DIY_P2_SH
-        cd openwrt
+        cd x-wrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
 #    - name: SSH connection to Actions
@@ -123,7 +123,7 @@ jobs:
     - name: Download package
       id: package
       run: |
-        cd openwrt
+        cd x-wrt
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
@@ -131,7 +131,7 @@ jobs:
     - name: Compile the firmware
       id: compile
       run: |
-        cd openwrt
+        cd x-wrt
         echo -e "$(nproc) thread compile"
         make -j8  || make -j8 V=s || make -j8 V=99
         echo "status=success" >> $GITHUB_STATE

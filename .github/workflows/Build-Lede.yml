@@ -65,7 +65,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-         git clone --depth 1 --branch $REPO_BRANCH $REPO_URL
+         git clone --depth 1 --branch $REPO_BRANCH $REPO_URL openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
@@ -147,7 +147,7 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: x-wrt/bin
+        path: openwrt/bin
 
     - name: Organize files
       id: organize

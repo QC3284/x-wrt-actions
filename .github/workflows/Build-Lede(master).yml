@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/x-wrt/x-wrt.git
-  REPO_BRANCH: 24.04_b202405311437
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -100,7 +100,7 @@ jobs:
     - name: Downlaod Config
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-openwrt.config -O .config
+         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-openwrt-master.config -O .config
          
     - name: Update make
       run: |

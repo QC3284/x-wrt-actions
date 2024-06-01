@@ -58,7 +58,7 @@ jobs:
         cd openwrt
         git fetch origin
         git fetch origin --tags
-        git checkout -f $(git describe --tags $(git rev-list --tags --max-count=1))
+        git checkout master
         
     - name: 下载（拉取）Edge（主题）
       run: |

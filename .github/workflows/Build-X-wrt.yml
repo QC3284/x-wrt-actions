@@ -64,6 +64,13 @@ jobs:
       run: |
          cd openwrt/package/
          git clone https://github.com/garypang13/luci-theme-edge.git
+    
+    - name: 下载横幅（banner）
+      run: |
+          cd openwrt/package/base-files/files/etc/
+          sudo rm -rf banner
+          ls
+          wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-banner.txt -O banner
 
     - name: 加载自定义 Feed源和更新Feed
       run: |

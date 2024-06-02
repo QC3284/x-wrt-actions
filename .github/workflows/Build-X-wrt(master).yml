@@ -1,4 +1,4 @@
-name: 编译X-wrt
+name: 编译X-wrt(master)
 
 on:
   schedule:

@@ -2,8 +2,7 @@ name: 编译X-wrt
 
 on:
   schedule:
-    - cron: 0 4 * * 3
-    - cron: 0 4 * * 6
+    - cron: 0 4 * * 5
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -166,8 +165,13 @@ jobs:
       run: |
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
-        [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
+        echo "自动编译-Automatic compilation" >> release.txt
+        echo "注意！本固件只适合型号为Xiaomi cr660x的路由器" >> release.txt
+        echo "Note! This firmware is only available for Xiaomi CR660X routers!" >> release.txt
+        echo "使用源码-Use the source code：" >> release.txt
+        echo "https://github.com/x-wrt/x-wrt" >> release.txt
+        echo "使用标签-Use tags：" >> release.txt
+        echo "$(git describe --tags $(git rev-list --tags --max-count=1))" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件以发布

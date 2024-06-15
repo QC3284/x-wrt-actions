@@ -173,9 +173,9 @@ jobs:
         echo "https://github.com/x-wrt/x-wrt" >> release.txt
         echo "使用最新标签：" >> release.txt
         echo "默认账号/密码：" >> release.txt
-        echo "root/admin" >> release.txt
+        echo "admin/admin" >> release.txt
         echo "SSH默认账号/密码：" >> release.txt
-        echo "root/admin：" >> release.txt
+        echo "root/admin" >> release.txt
         echo "注意！！！需要进入界面-系统-管理权页面-开启SSH登录" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 

@@ -16,7 +16,7 @@ Build X-wrt using GitHub Actions
 - 固件无线默认名称：X-WRT_XXXX，密码：88888888
 - 原版下载地址：
   https://downloads.x-wrt.com/rom/
-  注：没有修改opkg软件源，需自己解决
+- 注：没有修改opkg软件源，需自己解决
 
 ## 感谢 ##
 

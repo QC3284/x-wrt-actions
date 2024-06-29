@@ -1,6 +1,6 @@
 # Action-X-WRT / [x-openwrt-action](https://github.com/QC3284/x-openwrt-action)
 
-Build OpenWrt using GitHub Actions
+Build X-wrt using GitHub Actions
 
 
 ## 说明 ##

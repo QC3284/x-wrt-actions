@@ -1,6 +1,7 @@
 # Action-X-WRT / [x-openwrt-action](https://github.com/QC3284/x-openwrt-action)
 
 Build X-wrt using GitHub Actions
+![OpenWrt logo](https://raw.githubusercontent.com/x-wrt/com.x-wrt/master/x-wrt-logo/x-wrt-logo-Aldrich-raw.svg)
 
 
 ## 说明 ##

@@ -172,6 +172,8 @@ jobs:
         echo "注意！本固件只适合型号为Xiaomi cr660x的路由器" >> release.txt
         echo "使用源码：" >> release.txt
         echo "[x-wrt](https://github.com/x-wrt/x-wrt)" >> release.txt
+        echo "使用标签（tag）:" >> release.txt
+        echo $(git describe --tags $(git rev-list --tags --max-count=1)) >> release.txt
         echo "使用最新标签" >> release.txt
         echo "默认账号/密码：" >> release.txt
         echo "admin/admin" >> release.txt

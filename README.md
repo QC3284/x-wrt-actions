@@ -14,6 +14,8 @@ Build X-wrt using GitHub Actions
 （需要进入界面-系统-管理权页面-开启SSH登录）
 [X-WRT 开启ssh的方法](https://blog.x-wrt.com/docs/ssh-open/)
 - 固件无线默认名称：X-WRT_XXXX，密码：88888888
+- 每周六自动编译
+- 下载：https://github.com/QC3284/x-openwrt-action/releases
 - 原版下载地址：
   https://downloads.x-wrt.com/rom/
 - 注：没有修改opkg软件源，需自己解决

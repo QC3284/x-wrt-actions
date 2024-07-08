@@ -18,6 +18,7 @@ Build X-wrt using GitHub Actions
 - 原版下载地址：
   https://downloads.x-wrt.com/rom/
 - 注：没有修改opkg软件源，需自己解决
+- 可修改
 
 ## 感谢 ##
 

@@ -141,10 +141,15 @@ jobs:
          grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
          echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-         zip -r dl dl.zip
-         mv dl.zip bin/targets/ramips/mt7621/
+         echo 压缩dl目录......
+         cd dl
+         zip -r dl.zip *
          echo 完成
 
+    - name: 移动dl.zip
+      run: |
+         mv openwrt/dl/dl.zip openwrt/bin/targets/ramips/mt7621/
+    
     - name:  检查空间使用情况
       if: (!cancelled())
       run: df -hT

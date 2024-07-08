@@ -48,7 +48,7 @@ jobs:
          sudo apt update
          sudo apt upgrade -y
          sudo apt update
-         sudo apt install build-essential ecj fastjar file flex g++ gcc-multilib g++-multilib gawk gettext git git-core java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev swig python3 python3-dev python3-distutils python3-pyelftools subversion unzip wget zlib1g-dev rsync qemu-utils -y
+         sudo apt install build-essential ecj fastjar file flex g++ gcc-multilib g++-multilib gawk gettext git git-core java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev swig python3 python3-dev python3-distutils python3-pyelftools subversion unzip wget zlib1g-dev rsync qemu-utils zip -y
          sudo apt-get update
          sudo apt-get install -y libfuse-dev neofetch
          sudo apt update
@@ -71,6 +71,14 @@ jobs:
       run: |
          cd openwrt/package/
          git clone https://github.com/garypang13/luci-theme-edge.git
+         git clone https://github.com/jerrykuku/luci-theme-argon.git
+         git clone https://github.com/jerrykuku/luci-app-argon-config.git
+         git clone https://github.com/sirpdboy/luci-theme-opentopd.git
+         git clone https://github.com/derisamedia/luci-theme-alpha.git
+         git clone https://github.com/derisamedia/luci-app-alpha-config.git
+         git clone https://github.com/QC3284/luci-app-filetransfer.git
+         git clone https://github.com/QC3284/luci-app-autoreboot.git
+         git clone https://github.com/sirpdboy/luci-app-netdata.git
          git clone https://github.com/zzsj0928/luci-app-pushbot.git
          git clone https://github.com/QC3284/luci-app-ramfree.git
          git clone https://github.com/animegasan/luci-app-wolplus.git
@@ -83,20 +91,26 @@ jobs:
           ls
           wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-banner.txt -O banner
 
-    - name: 加载自定义 Feed源和更新Feed
-      run: |
-         cd openwrt
-         sed -i 's/192.168.15.1/192.168.5.1/g' package/base-files/files/bin/config_generate
-         sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-         sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-         ./scripts/feeds update -a && sudo rm -rf feeds/luci/applications/luci-app-mosdns && sudo rm -rf feeds/kenzo/luci-app-smartdns && sudo rm -rf feeds/luci/applications/luci-app-smartdns
-         sudo rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
-         sudo rm -rf feeds/packages/utils/v2dat
-         sudo rm -rf feeds/packages/lang/golang
-         git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-         git clone https://github.com/pymumu/openwrt-smartdns feeds/packages/net/smartdns
-         git clone https://github.com/pymumu/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
+#    - name: 加载自定义 Feed源和更新Feed-01
+#      run: |
+#         cd openwrt
+#         sed -i 's/192.168.15.1/192.168.5.1/g' package/base-files/files/bin/config_generate
+#         sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+#         sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+#         ./scripts/feeds update -a && sudo rm -rf feeds/luci/applications/luci-app-mosdns && sudo rm -rf feeds/kenzo/luci-app-smartdns && sudo rm -rf feeds/luci/applications/luci-app-smartdns
+#         sudo rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
+#         sudo rm -rf feeds/packages/utils/v2dat
+#         sudo rm -rf feeds/packages/lang/golang
+#         git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+#         git clone https://github.com/pymumu/openwrt-smartdns feeds/packages/net/smartdns
+#         git clone https://github.com/pymumu/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
 
+    - name: 更新Feed
+      run: |
+        cd openwrt
+        sed -i 's/192.168.15.1/192.168.5.1/g' package/base-files/files/bin/config_generate
+        ./scripts/feeds update -a
+    
     - name: 安装Feed
       run: |
          cd openwrt
@@ -107,7 +121,7 @@ jobs:
     - name: 下载配置（.Config）
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-003.config -O .config
+         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-004.config -O .config
          echo "下载完成"
 
     - name: 下载包（dl库）
@@ -127,6 +141,8 @@ jobs:
          grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
          echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+         zip -r dl dl.zip
+         mv dl.zip bin/targets/ramips/mt7621/
          echo 完成
 
     - name:  检查空间使用情况

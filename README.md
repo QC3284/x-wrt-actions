@@ -9,7 +9,6 @@ Build X-wrt using GitHub Actions
 - 路由器型号：Xiaomi cr6606/6608/6609
 - 固件管理界面：http://192.168.5.1/
 - 管理界面账户/密码：admin/admin
-- 默认密码（luci）：password
 - SSH登录账户/密码：root/admin
 （需要进入界面-系统-管理权页面-开启SSH登录）
 [X-WRT 开启ssh的方法](https://blog.x-wrt.com/docs/ssh-open/)

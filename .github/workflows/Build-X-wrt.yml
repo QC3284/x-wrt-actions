@@ -50,7 +50,7 @@ jobs:
          sudo apt update
          sudo apt install build-essential ecj fastjar file flex g++ gcc-multilib g++-multilib gawk gettext git git-core java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev swig python3 python3-dev python3-distutils python3-pyelftools subversion unzip wget zlib1g-dev rsync qemu-utils zip -y
          sudo apt-get update
-         sudo apt-get install -y libfuse-dev neofetch
+         sudo apt-get install -y libfuse-dev neofetch 7zip
          sudo apt update
          sudo apt full-upgrade -y
          sudo neofetch
@@ -139,14 +139,16 @@ jobs:
          grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
          echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+         echo 压缩bin目录......
+         7zz a -mx9 bin.zip bin
          echo 压缩dl目录......
-         cd dl
-         zip -r -q dl.zip *
+         7zz a -mx9 dl.zip dl
          echo 完成
 
-    - name: 移动dl.zip
+    - name: 移动dl.zip，bin.zip
       run: |
-         mv openwrt/dl/dl.zip openwrt/bin/targets/ramips/mt7621/
+         mv openwrt/dl.zip openwrt/bin/targets/ramips/mt7621/
+         mv openwrt/bin.zip openwrt/bin/targets/ramips/mt7621/
     
     - name:  检查空间使用情况
       if: (!cancelled())

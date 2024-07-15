@@ -119,7 +119,7 @@ jobs:
     - name: 下载配置（.Config）
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-005.config -O .config
+         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-006.config -O .config
          echo "下载完成"
 
     - name: 下载包（dl库）

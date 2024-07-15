@@ -82,9 +82,6 @@ jobs:
          git clone https://github.com/zzsj0928/luci-app-pushbot.git
          git clone https://github.com/animegasan/luci-app-wolplus.git
          git clone https://github.com/sirpdboy/luci-app-eqosplus.git
-         git clone https://github.com/maxlicheng/luci-app-unblockmusic.git
-         git clone https://github.com/sirpdboy/netspeedtest.git
-         git clone https://github.com/sirpdboy/luci-app-lucky.git
     
     - name: 下载横幅（banner）
       run: |
@@ -142,15 +139,13 @@ jobs:
          grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
          echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-         echo 压缩dl目录......
+         echo 压缩dl和bin目录......
          7zz a dl.zip dl
+         mv dl.zip bin/targets/ramips/mt7621/
+         7zz a bin.zip bin
+         mv bin.zip bin/targets/ramips/mt7621/
          echo 完成
 
-    - name: 移动dl.zip，bin.zip
-      run: |
-         mv openwrt/dl.zip openwrt/bin/targets/ramips/mt7621/
-         mv openwrt/bin.zip openwrt/bin/targets/ramips/mt7621/
-    
     - name:  检查空间使用情况
       if: (!cancelled())
       run: df -hT

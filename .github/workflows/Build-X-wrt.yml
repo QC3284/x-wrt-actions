@@ -142,10 +142,8 @@ jobs:
          grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
          echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-         echo 压缩bin目录......
-         7zz a -mx9 bin.zip bin
          echo 压缩dl目录......
-         7zz a -mx9 dl.zip dl
+         7zz a dl.zip dl
          echo 完成
 
     - name: 移动dl.zip，bin.zip

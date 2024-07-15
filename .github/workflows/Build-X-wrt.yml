@@ -141,8 +141,8 @@ jobs:
          echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
          echo 压缩dl和bin目录......
          7zz a dl.zip dl
-         mv dl.zip bin/targets/ramips/mt7621/
          7zz a bin.zip bin
+         mv dl.zip bin/targets/ramips/mt7621/
          mv bin.zip bin/targets/ramips/mt7621/
          echo 完成
 

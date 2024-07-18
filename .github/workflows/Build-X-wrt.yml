@@ -89,6 +89,8 @@ jobs:
         git clone https://github.com/sirpdboy/luci-app-lucky.git lucky
         git clone https://github.com/sirpdboy/netspeedtest.git
         git clone https://github.com/gSpotx2f/luci-app-log.git
+        git clone https://github.com/QC3284/luci-app-uugamebooster.git
+        git clone https://github.com/QC3284/uugamebooster.git
     
     - name: 下载横幅 (Download banner)
       run: |
@@ -130,7 +132,7 @@ jobs:
     - name: 下载配置 (Download Config (.config))
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-007.config -O .config
+         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-008.config -O .config
          echo " 下载完成 (Download complete)"
 
     - name: 下载包 (Download package (dl library))

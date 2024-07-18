@@ -45,6 +45,7 @@ jobs:
     - name: 安装必要软件包 (Installation of necessary packages)
       run: |
         echo $(uname -a) 
+        sleep 5
         sudo apt-get update
         sudo apt update
         sudo apt upgrade -y

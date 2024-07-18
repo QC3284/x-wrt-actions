@@ -63,6 +63,7 @@ jobs:
         git clone https://github.com/x-wrt/x-wrt.git openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
+        git pull
         git fetch origin
         git fetch origin --tags
         git checkout -f $(git describe --tags $(git rev-list --tags --max-count=1))
@@ -109,6 +110,10 @@ jobs:
         cd openwrt
         sed -i 's/192.168.15.1/192.168.5.1/g' package/base-files/files/bin/config_generate
         ./scripts/feeds update -a
+        sudo rm -rf feeds/packages/net/smartdns
+        sudo rm -rf feeds/luci/applications/luci-app-smartdns
+        git clone https://github.com/pymumu/openwrt-smartdns.git  feeds/packages/net/smartdns
+        git clone https://github.com/pymumu/luci-app-smartdns.git feeds/luci/applications/luci-app-smartdns
     
     - name: 安装Feed
       run: |

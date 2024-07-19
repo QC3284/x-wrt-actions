@@ -72,7 +72,6 @@ jobs:
     - name: 拉取插件 (Pull plug-in)
       run: |
         cd openwrt/package/
-        sudo rm -rf ddns-go
         git clone https://github.com/garypang13/luci-theme-edge.git
         git clone https://github.com/jerrykuku/luci-theme-argon.git
         git clone https://github.com/jerrykuku/luci-app-argon-config.git
@@ -85,7 +84,6 @@ jobs:
         git clone https://github.com/zzsj0928/luci-app-pushbot.git
         git clone https://github.com/animegasan/luci-app-wolplus.git
         git clone https://github.com/sirpdboy/luci-app-eqosplus.git
-        git clone https://github.com/sirpdboy/luci-app-lucky.git lucky
         git clone https://github.com/sirpdboy/netspeedtest.git
         git clone https://github.com/gSpotx2f/luci-app-log.git
         

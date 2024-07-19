@@ -141,6 +141,10 @@ jobs:
     - name: 编译固件 (Compile Firmware)
       run: |
          cd openwrt
+         sudo neofetch
+         make -version
+         gcc --version | head -n1
+         sleep 10
          echo -e "$(nproc) thread compile"
          make -j$(nproc)  || make -j4 V=s || make -j4 V=99
          echo "status=success" >> $GITHUB_STATE

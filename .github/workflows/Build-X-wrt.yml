@@ -84,6 +84,7 @@ jobs:
         git clone https://github.com/zzsj0928/luci-app-pushbot.git
         git clone https://github.com/animegasan/luci-app-wolplus.git
         git clone https://github.com/sirpdboy/luci-app-eqosplus.git
+        git clone https://github.com/sirpdboy/luci-app-ddns-go.git ddns-go
         
     - name: 下载横幅 (Download banner)
       run: |
@@ -125,7 +126,7 @@ jobs:
     - name: 下载配置 (Download Config (.config))
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-010.config -O .config
+         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-011.config -O .config
          echo " 下载完成 (Download complete)"
 
     - name: 下载包 (Download package (dl library))

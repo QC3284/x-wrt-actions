@@ -21,9 +21,10 @@ Build X-wrt using GitHub Actions
 - 注：没有修改opkg软件源，需自己解决
 - 可修改
 
-## 说明 ##
+## 状态 ##
 编译状态：
-[![](https://github.com/haiibo/OpenWrt/actions/workflows/X86_64-OpenWrt.yml/badge.svg)](https://github.com/haiibo/OpenWrt/actions/workflows/X86_64-OpenWrt.yml)
+[![](https://github.com/QC3284/x-wrt-actions/actions/workflows/Build-X-wrt.yml/badge.svg)](https://github.com/QC3284/x-wrt-actions/actions/workflows/Build-X-wrt.yml)
+
 ## 感谢 ##
 
 - [Microsoft](https://www.microsoft.com)

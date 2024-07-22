@@ -23,7 +23,7 @@ Build X-wrt using GitHub Actions
 
 ## 说明 ##
 编译状态：
-[Github Actions](https://github.com/QC3284/x-wrt-actions/actions/workflows/Build-X-wrt.yml/badge.svg)
+[![](https://github.com/haiibo/OpenWrt/actions/workflows/X86_64-OpenWrt.yml/badge.svg)](https://github.com/haiibo/OpenWrt/actions/workflows/X86_64-OpenWrt.yml)
 ## 感谢 ##
 
 - [Microsoft](https://www.microsoft.com)

@@ -18,8 +18,11 @@ Build X-wrt using GitHub Actions
 - 下载：https://github.com/QC3284/x-wrt-actions/releases
 - 原版下载地址：
   https://downloads.x-wrt.com/rom/
-- 注：没有修改opkg软件源，需自己解决
-- 可修改
+- 注:
+- 1.没有修改opkg软件源，需自己解决
+- 2.本固件仍在测试中，稳定性较差
+- 3.可能会出现各种奇奇怪怪的Bug
+- 4.fork后，可自定义固件（没有说明，自行摸索）
 
 ## 状态 ##
 编译状态：

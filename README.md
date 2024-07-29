@@ -7,7 +7,7 @@ Build X-wrt using GitHub Actions
 
 ## 说明 ##
 - 采用[PTPT52's X-wrt](https://github.com/x-wrt/x-wrt)源码编译
-- 处理器：ramips/mt7621（MediaTek MT7621）
+- 路由器型号：Xiaomi cr6606/6608/6609
 - 固件管理界面：http://192.168.5.1/
 - 管理界面账户/密码：admin/admin
 - SSH登录账户/密码：root/admin
@@ -20,7 +20,9 @@ Build X-wrt using GitHub Actions
   https://downloads.x-wrt.com/rom/
 - 注:
 - 1.没有修改opkg软件源，需自己解决
-- 2.本固件更新频繁，一般情况下不需要升级
+- 2.本固件仍在测试中，稳定性较差
+- 3.可能会出现各种奇奇怪怪的Bug
+- 4.fork后，可自定义固件（没有说明，自行摸索）
 
 ## 状态 ##
 编译状态：

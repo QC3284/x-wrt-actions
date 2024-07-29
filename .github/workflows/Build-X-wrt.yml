@@ -69,23 +69,7 @@ jobs:
         git fetch origin --tags
         git checkout -f $(git describe --tags $(git rev-list --tags --max-count=1))
         
-    - name: 拉取插件 (Pull plug-in)
-      run: |
-        cd openwrt/package/
-        git clone https://github.com/garypang13/luci-theme-edge.git
-        git clone https://github.com/jerrykuku/luci-theme-argon.git
-        git clone https://github.com/jerrykuku/luci-app-argon-config.git
-        git clone https://github.com/sirpdboy/luci-theme-opentopd.git
-        git clone https://github.com/derisamedia/luci-theme-alpha.git
-        git clone https://github.com/derisamedia/luci-app-alpha-config.git
-        git clone https://github.com/f8q8/luci-app-filetransfer.git
-        git clone https://github.com/kongfl888/luci-app-timedreboot.git
-        git clone https://github.com/sirpdboy/luci-app-netdata.git
-        git clone https://github.com/zzsj0928/luci-app-pushbot.git
-        git clone https://github.com/animegasan/luci-app-wolplus.git
-        git clone https://github.com/sirpdboy/luci-app-eqosplus.git
-        git clone https://github.com/sirpdboy/luci-app-ddns-go.git ddns-go
-        
+
     - name: 下载横幅 (Download banner)
       run: |
         cd openwrt/package/base-files/files/etc/
@@ -112,10 +96,6 @@ jobs:
         cd openwrt
         sed -i 's/192.168.15.1/192.168.5.1/g' package/base-files/files/bin/config_generate
         ./scripts/feeds update -a
-        sudo rm -rf feeds/packages/net/smartdns
-        sudo rm -rf feeds/luci/applications/luci-app-smartdns
-        git clone https://github.com/pymumu/openwrt-smartdns.git  feeds/packages/net/smartdns
-        git clone https://github.com/pymumu/luci-app-smartdns.git feeds/luci/applications/luci-app-smartdns
     
     - name: 安装Feed (Install Feed)
       run: |
@@ -126,8 +106,7 @@ jobs:
     - name: 下载配置 (Download Config (.config))
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-action-011.config -O .config
-         echo " 下载完成 (Download complete)"
+         cp feeds/x/rom/lede/config.ramips-mt7621 .config
 
     - name: 下载包 (Download package (dl library))
       run: |

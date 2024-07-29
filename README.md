@@ -20,9 +20,7 @@ Build X-wrt using GitHub Actions
   https://downloads.x-wrt.com/rom/
 - 注:
 - 1.没有修改opkg软件源，需自己解决
-- 2.本固件仍在测试中，稳定性较差
-- 3.可能会出现各种奇奇怪怪的Bug
-- 4.fork后，可自定义固件（没有说明，自行摸索）
+- 2.本固件更新频繁，一般情况下不需要升级
 
 ## 状态 ##
 编译状态：

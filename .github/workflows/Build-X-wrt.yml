@@ -150,9 +150,11 @@ jobs:
          grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
          echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-         echo "压缩bin目录...... (Compressing bin directories ......)"
+         echo "压缩bin和dl目录...... (Compressing bin directories ......)"
          7zz a bin.zip bin
+         7zz a dl.zip dl
          mv bin.zip bin/targets/ramips/mt7621/
+         mv dl.zip bin/targets/ramips/mt7621/
          echo "完成 (Finished.)"
 
     - name: 检查空间使用情况 (Check space usage)
@@ -190,7 +192,8 @@ jobs:
         echo "自动编译 (Automatic compilation)" >> release.txt
         echo "使用源码 (Use source code)：" >> release.txt
         echo "[x-wrt](https://github.com/x-wrt/x-wrt)" >> release.txt
-        echo "使用最新标签 (Use the latest tags)" >> release.txt
+        echo "使用标签 (Use the latest tags)" >> release.txt
+        echo "24.04_b202407221028" >> release.txt
         echo "默认账号/密码 (Default account/password)：" >> release.txt
         echo "admin/admin" >> release.txt
         echo "SSH默认账号/密码 (Default SSH account/password)：" >> release.txt

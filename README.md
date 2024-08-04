@@ -24,10 +24,6 @@ Build X-wrt using GitHub Actions
 - 3.可能会出现各种奇奇怪怪的Bug
 - 4.fork后，可自定义固件（没有说明，自行摸索）
 
-## 状态 ##
-编译状态：
-[![](https://github.com/QC3284/x-wrt-actions/actions/workflows/Build-X-wrt.yml/badge.svg)](https://github.com/QC3284/x-wrt-actions/actions/workflows/Build-X-wrt.yml)
-
 ## 感谢 ##
 
 - [Microsoft](https://www.microsoft.com)

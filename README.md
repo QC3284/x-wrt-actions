@@ -1,4 +1,4 @@
-# Actions-X-WRT / [x-openwrt-actions](https://github.com/QC3284/x-openwrt-actions)
+# Actions-X-WRT / [x-wrt-actions](https://github.com/QC3284/x-wrt-actions)
 
 Build X-wrt using GitHub Actions
 ![OpenWrt logo](https://raw.githubusercontent.com/x-wrt/com.x-wrt/master/x-wrt-logo/x-wrt-logo-Aldrich-raw.svg)
@@ -36,5 +36,3 @@ Build X-wrt using GitHub Actions
 - [Cowtransfer](https://cowtransfer.com)
 - [WeTransfer](https://wetransfer.com/)
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
-- [kenzok8 openwrt-packages](https://github.com/kenzok8/openwrt-packages)
-- [kenzol8 small](https://github.com/kenzok8/small)

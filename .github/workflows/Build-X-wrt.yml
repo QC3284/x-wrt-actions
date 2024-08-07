@@ -126,7 +126,7 @@ jobs:
     - name: 下载配置 (Download Config (.config))
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-actions-001.config -O .config
+         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-actions-001.config -o .config
          echo " 下载完成 (Download complete)"
 
     - name: 下载包 (Download package (dl library))
@@ -154,10 +154,10 @@ jobs:
          7zz a bin.zip bin
          mv bin.zip bin/targets/ramips/mt7621/
          cd bin/targets/ramips/mt7621/
-         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-bin/x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin -O yuanbangujian-x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin
-         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.ecc -O pb-boot.ecc || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.ecc -O pb-boot.ecc
-         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.img -O pb-boot.img || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.img -O pb-boot.img
-         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.sha256 -O pb-boot.sha256 || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.sha256 -O pb-boot.sha256
+         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-bin/x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin -o yuanbangujian-x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin
+         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.ecc -o pb-boot.ecc || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.ecc -o pb-boot.ecc
+         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.img -o pb-boot.img || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.img -o pb-boot.img
+         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.sha256 -o pb-boot.sha256 || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.sha256 -o pb-boot.sha256
          echo "完成 (Finished.)"
 
     - name: 检查空间使用情况 (Check space usage)

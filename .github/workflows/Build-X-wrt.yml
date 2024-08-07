@@ -156,8 +156,8 @@ jobs:
          mv dl.zip bin/targets/ramips/mt7621/ 
          cd bin/targets/ramips/mt7621/
          curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-bin/x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin -O yuanbangujian-x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin
-         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.ecc -O pb-boot.ecc || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.ecc
-         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.img -O pb-boot.img || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.img
+         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.ecc -O pb-boot.ecc || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.ecc -O pb-boot.ecc
+         curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.img -O pb-boot.img || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.img -O pb-boot.img
          curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.sha256 -O pb-boot.sha256 || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.sha256 -O pb-boot.sha256
          echo "完成 (Finished.)"
 

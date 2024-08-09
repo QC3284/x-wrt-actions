@@ -67,7 +67,7 @@ jobs:
         git pull
         git fetch origin
         git fetch origin --tags
-        git checkout -f 24.04_b202407221028
+        git checkout -f 24.04_b202408031649
         
     - name: 拉取插件 (Pull plug-in)
       run: |
@@ -85,6 +85,7 @@ jobs:
         git clone https://github.com/animegasan/luci-app-wolplus.git
         git clone https://github.com/sirpdboy/luci-app-eqosplus.git
         git clone https://github.com/sirpdboy/luci-app-ddns-go.git ddns-go
+        git clone https://github.com/QC3284/coremark-openwrt.git utils/coremark
         
     - name: 下载横幅 (Download banner)
       run: |
@@ -126,7 +127,7 @@ jobs:
     - name: 下载配置 (Download Config (.config))
       run: |
          cd openwrt
-         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-actions-001.config -o .config
+         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-actions-002.config -o .config
          echo " 下载完成 (Download complete)"
 
     - name: 下载包 (Download package (dl library))
@@ -144,6 +145,7 @@ jobs:
          make -version
          gcc --version | head -n1
          sleep 10
+         echo "开始编译"
          echo -e "$(nproc) thread compile"
          make -j$(nproc)  || make -j4 V=s || make -j4 V=99
          echo "status=success" >> $GITHUB_STATE

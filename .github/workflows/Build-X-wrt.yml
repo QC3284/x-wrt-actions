@@ -160,7 +160,6 @@ jobs:
          7zz a bin.zip bin
          mv bin.zip bin/targets/ramips/mt7621/
          cd bin/targets/ramips/mt7621/
-         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-bin/x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin -o yuanbangujian-x-wrt-24.04-b202407221028-ramips-mt7621-xiaomi_mi-router-cr660x-squashfs-factory.bin
          curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.ecc -o pb-boot.ecc || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.ecc -o pb-boot.ecc
          curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.img -o pb-boot.img || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.img -o pb-boot.img
          curl http://downloads.pangubox.com:6380/lintel/CR660X/pb-boot/pb-boot.sha256 -o pb-boot.sha256 || curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/pb-boot-cr660x-back/pb-boot.sha256 -o pb-boot.sha256
@@ -208,8 +207,7 @@ jobs:
         echo "SSH默认账号/密码 (Default SSH account/password)：" >> release.txt
         echo "root/admin" >> release.txt
         echo "注：" >> release.txt
-        echo "1.带有 yuanbangujian 字样的为x-wrt原版固件" >> release.txt
-        echo "*****-factory.bin 通常用于从原厂固件或Uboot中刷入"  release.txt
+        echo "1.*****-factory.bin 通常用于从原厂固件或Uboot中刷入"  release.txt
         echo "*****-sysupgrade.bin 通常用于web升级" >> release.txt
         echo "*****-initramfs-kernel.bin 具有最少文件系统的Linux内核. 对于首次安装或恢复很有用" >> release.txt
         echo "sha256sums 是校验文件" >> release.txt

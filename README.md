@@ -39,4 +39,4 @@ Build X-wrt using GitHub Actions
 
 ## LICENSE ##
 - [LICENSE](https://github.com/QC3284/x-wrt-actions/blob/main/LICENSE)
-- GPL-2.0(GNU General Public License v2.0)
+- GPL-3.0(GNU General Public License v3.0)

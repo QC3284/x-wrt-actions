@@ -37,5 +37,6 @@ Build X-wrt using GitHub Actions
 - [WeTransfer](https://wetransfer.com/)
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
 
-##LICENSE##
-- GPL-3.0
+## LICENSE ##
+- [LICENSE](https://github.com/QC3284/x-wrt-actions/blob/main/LICENSE)
+- GPL-2.0(GNU General Public License v2.0)

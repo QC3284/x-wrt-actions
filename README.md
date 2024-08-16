@@ -38,4 +38,4 @@ Build X-wrt using GitHub Actions
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
 
 ##LICENSE##
-GPL-3.0
+- GPL-3.0

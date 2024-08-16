@@ -211,7 +211,7 @@ jobs:
         echo "SSH默认账号/密码 (Default SSH account/password)：" >> release.txt
         echo "root/admin" >> release.txt
         echo "注：" >> release.txt
-        echo "-------------" >> release.txt
+        echo "- *****-factory.bin 通常用于从原厂固件或Uboot中刷入"  release.txt
         echo "- *****-factory.bin 通常用于从原厂固件或Uboot中刷入"  release.txt
         echo "- *****-sysupgrade.bin 通常用于web升级" >> release.txt
         echo "- *****-initramfs-kernel.bin 具有最少文件系统的Linux内核. 对于首次安装或恢复很有用" >> release.txt

@@ -23,6 +23,7 @@ Build X-wrt using GitHub Actions
 - 2.本固件仍在测试中，稳定性较差
 - 3.可能会出现各种奇奇怪怪的Bug
 - 4.fork后，可自定义固件（没有说明，自行摸索）
+- 5.本仓库禁止克隆到[Gitcode](https://gitcode.com)
 
 ## 感谢 ##
 

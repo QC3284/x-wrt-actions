@@ -36,3 +36,6 @@ Build X-wrt using GitHub Actions
 - [Cowtransfer](https://cowtransfer.com)
 - [WeTransfer](https://wetransfer.com/)
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
+
+##LICENSE##
+GPL-3.0

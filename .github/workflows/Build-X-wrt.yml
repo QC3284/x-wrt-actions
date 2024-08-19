@@ -1,6 +1,7 @@
 #本仓库及文件只在Github发布
 #作者：QC3284@github.com(https://github.com/QC3284)
 #本仓库地址：https://github.com/QC3284/x-wrt-actions
+#最后更新时间：2024.08.19
 
 name: 编译X-wrt (Compile X-wrt)
 
@@ -75,7 +76,7 @@ jobs:
         git pull
         git fetch origin
         git fetch origin --tags
-        git checkout -f 24.04_b202408151500
+        git checkout -f 24.04_b202408182159
         
     - name: 拉取插件 (Pull plug-in)
       run: |
@@ -94,6 +95,9 @@ jobs:
         git clone https://github.com/sirpdboy/luci-app-eqosplus.git
         git clone https://github.com/sirpdboy/luci-app-ddns-go.git ddns-go
         git clone https://github.com/QC3284/coremark-openwrt.git utils/coremark
+        git clone https://github.com/sirpdboy/luci-theme-kucat.git
+        git clone https://github.com/sirpdboy/luci-app-advancedplus.git
+        git clone https://github.com/QC3284/luci-app-adguardhome.git
         
     - name: 下载横幅 (Download banner)
       run: |
@@ -135,7 +139,7 @@ jobs:
     - name: 下载配置 (Download Config (.config))
       run: |
          cd openwrt
-         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-actions-004.config -o .config
+         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-actions-005.config -o .config
          echo " 下载完成 (Download complete)"
 
     - name: 下载包 (Download package (dl library))
@@ -205,15 +209,15 @@ jobs:
         echo "使用源码 (Use source code)：" >> release.txt
         echo "[x-wrt](https://github.com/x-wrt/x-wrt)" >> release.txt
         echo "使用标签 (Use tags)" >> release.txt
-        echo "24.04_b202408031649" >> release.txt
+        echo "24.04_b202408182159" >> release.txt
         echo "默认账号/密码 (Default account/password)：" >> release.txt
         echo "admin/admin" >> release.txt
         echo "SSH默认账号/密码 (Default SSH account/password)：" >> release.txt
         echo "root/admin" >> release.txt
         echo "注：" >> release.txt
-        echo "- factory.bin 通常用于从原厂固件或Uboot中刷入"  release.txt
-        echo "- sysupgrade.bin 通常用于web升级" >> release.txt
-        echo "- initramfs-kernel.bin 具有最少文件系统的Linux内核. 对于首次安装或恢复很有用" >> release.txt
+        echo "- ****-factory.bin 通常用于从原厂固件或Uboot中刷入" >> release.txt
+        echo "- ****-sysupgrade.bin 通常用于web升级" >> release.txt
+        echo "- ****-initramfs-kernel.bin 具有最少文件系统的Linux内核. 对于首次安装或恢复很有用" >> release.txt
         echo "- sha256sums 是校验文件" >> release.txt
         echo "- PB-Boot适用于Xiaomi CR6608/CR6609/CR6606"  release.txt
         echo "- pb-boot.img 是pb-boot(bootloader)文件" >> release.txt

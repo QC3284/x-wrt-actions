@@ -31,11 +31,8 @@ Build X-wrt using GitHub Actions
 - [Microsoft Azure](https://azure.microsoft.com)
 - [GitHub](https://github.com)
 - [GitHub Actions](https://github.com/features/actions)
-- [tmate](https://github.com/tmate-io/tmate)
 - [OpenWrt](https://github.com/openwrt/openwrt)
 - [X-wrt](https://github.com/x-wrt/x-wrt)
-- [Cowtransfer](https://cowtransfer.com)
-- [WeTransfer](https://wetransfer.com/)
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
 
 ## LICENSE ##

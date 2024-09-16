@@ -2,7 +2,7 @@
 
 Build X-wrt using GitHub Actions
 ![OpenWrt logo](https://raw.githubusercontent.com/x-wrt/com.x-wrt/master/x-wrt-logo/x-wrt-logo-Aldrich-raw.svg)
-![github logo](https://raw.githubusercontent.com/QC3284/x-wrt-actions/main/oip-c.png)
+![github logo](./oip-c.png)
 
 
 ## 说明 ##

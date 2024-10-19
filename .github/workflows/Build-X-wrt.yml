@@ -83,6 +83,7 @@ jobs:
       run: |
         cd openwrt/package/
         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/gitcj.py
+        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/giturl.txt
         python3 gitcj.py
         sleep 3
         

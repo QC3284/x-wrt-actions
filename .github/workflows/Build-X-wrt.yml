@@ -77,7 +77,7 @@ jobs:
         git pull
         git fetch origin
         git fetch origin --tags
-        git checkout -f 24.04_b202410182034
+        git checkout -f 24.04_b202410201421
         
     - name: 拉取插件 (Pull plug-in)
       run: |

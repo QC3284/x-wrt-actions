@@ -95,14 +95,6 @@ jobs:
         git fetch origin --tags
         git checkout 24.04_b202411071136
         
-    - name: 拉取插件 (Pull plug-in)
-      run: |
-        cd openwrt/package/
-        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/gitcj.py
-        wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/giturl.txt
-        python3 gitcj.py
-        sleep 3
-        
     - name: 下载横幅 (Download banner)
       run: |
         cd openwrt/package/base-files/files/etc/
@@ -127,9 +119,7 @@ jobs:
     - name: 更新Feed (Update Feed)
       run: |
         cd openwrt
-        curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-git-002.sh | bash
         ./scripts/feeds update -a
-        curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-git-003.sh | bash
         
     - name: 安装Feed (Install Feed)
       run: |
@@ -140,8 +130,7 @@ jobs:
     - name: 下载配置 (Download Config (.config))
       run: |
          cd openwrt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-actions-24.04_b202411071136.config -O .config
-         echo " 下载完成 (Download complete)"
+         cp feeds/x/rom/lede/config.ramips-mt7621 .config
 
     - name: 下载包 (Download package (dl library))
       run: |
@@ -166,14 +155,6 @@ jobs:
          echo "压缩bin目录...... (Compressing bin directories ......)"
          7zz a -mx=9 -mmt=8 bin.zip bin
          mv bin.zip bin/targets/ramips/mt7621/
-         cd bin/targets/ramips/mt7621/
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/downloadurl.txt
-         wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/downloader.py
-         python3 downloader.py
-         sleep 3
-         sudo rm -rf downloadurl.txt
-         sudo rm -rf downloader.py
-         curl https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/x-wrt-git-004.sh | bash
          echo "完成 (Finished.)"
 
     - name: 检查空间使用情况 (Check space usage)

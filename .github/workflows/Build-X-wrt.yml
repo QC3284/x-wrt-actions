@@ -233,7 +233,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.3.4
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 6
+        keep_latest: 10
         delete_tags: flase
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

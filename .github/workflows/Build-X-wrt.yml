@@ -162,6 +162,7 @@ jobs:
          echo "压缩bin目录...... (Compressing bin directories ......)"
          7zz a -mx=9 -mmt=8 bin.7z bin
          mv bin.7z bin/targets/ramips/mt7621/
+         mv make_download.log bin/targets/ramips/mt7621/
          mv make.log bin/targets/ramips/mt7621/
          cd bin/targets/ramips/mt7621/
          wget https://raw.githubusercontent.com/QC3284/openwrt-actions-config/main/downloadurl.txt

@@ -1,7 +1,7 @@
 #本仓库及文件只在Github发布
 #作者：QC3284@github.com(https://github.com/QC3284)
 #本仓库地址：https://github.com/QC3284/x-wrt-actions
-#最后更新时间：2024.11.29
+#最后更新时间：2024.12.1
 
 name: 编译X-wrt (Compile X-wrt)
 
@@ -28,7 +28,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
     - name: Checkout
@@ -72,7 +72,7 @@ jobs:
         sleep 5
         sudo apt update
         sudo apt upgrade -y
-        sudo apt install build-essential ecj fastjar file flex g++ gcc-multilib g++-multilib gawk gettext git git-core java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev swig python3 python3-pip python3-dev python3-distutils python3-pyelftools subversion unzip wget zlib1g-dev rsync qemu-utils zip -y
+        sudo apt install build-essential ecj fastjar file flex g++ gcc-multilib g++-multilib gawk gettext git git-core java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev swig python3 python3-pip python3-dev python3-setuptools python3-pyelftools subversion unzip wget zlib1g-dev rsync qemu-utils zip -y
         sudo apt-get install -y libfuse-dev neofetch 7zip
         sudo apt full-upgrade -y
         pip install requests tqdm

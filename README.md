@@ -5,7 +5,7 @@ Build X-wrt using GitHub Actions
 ![github logo](./oip-c.png)
 
 ## 注意 ##
-- 此仓库将合并至[openwrt-actions](https://github.com/QC3284/openwrt-actions)
+- 此仓库已合并至[openwrt-actions](https://github.com/QC3284/openwrt-actions)
 ## 说明 ##
 - 采用[X-wrt](https://github.com/x-wrt/x-wrt)源码编译
 - 路由器型号：Xiaomi cr6606/6608/6609
